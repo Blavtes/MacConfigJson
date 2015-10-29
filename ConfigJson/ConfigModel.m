@@ -8,11 +8,36 @@
 
 #import "ConfigModel.h"
 
-@implementation ConfigModel
+
+@implementation RMTGameConfigModel
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
 
 @end
 
 @implementation RMTConfigComponent
+
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
+
+@end
+
+@implementation RMTGameDesConfig
+
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
+
+
+@end
+
+@implementation RMTGameInfoConfig
 
 +(BOOL)propertyIsOptional:(NSString*)propertyName
 {
