@@ -695,14 +695,16 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zvu-O2-Zf1">
-                                <rect key="frame" x="6" y="468" width="45" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="*包名*:" id="lmt-7X-gXZ">
-                                    <font key="font" size="13" name="STHeitiSC-Light"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C75-6d-Kw1">
+                                <rect key="frame" x="274" y="172" width="111" height="32"/>
+                                <buttonCell key="cell" type="push" title="save config" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fLa-jr-WeO">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="saveClick:" target="XfG-lQ-9wD" id="2VW-Jc-74Z"/>
+                                </connections>
+                            </button>
                             <button fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ts3-db-enl">
                                 <rect key="frame" x="376" y="463" width="62" height="27"/>
                                 <buttonCell key="cell" type="check" title="陀螺仪" bezelStyle="regularSquare" imagePosition="left" inset="2" id="6BV-aX-eP4">
@@ -922,16 +924,14 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C75-6d-Kw1">
-                                <rect key="frame" x="274" y="172" width="111" height="32"/>
-                                <buttonCell key="cell" type="push" title="save config" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fLa-jr-WeO">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="saveClick:" target="XfG-lQ-9wD" id="2VW-Jc-74Z"/>
-                                </connections>
-                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zvu-O2-Zf1">
+                                <rect key="frame" x="-1" y="467" width="45" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="*包名*:" id="lmt-7X-gXZ">
+                                    <font key="font" size="13" name="STHeitiSC-Light"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
