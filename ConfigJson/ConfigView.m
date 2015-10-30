@@ -34,12 +34,13 @@
 
 @implementation ConfigView
 
-- (instancetype)initWithTag:(int)tag withTitle:(NSString *)str withCheckout:(NSInteger)index
+- (instancetype)initWithTag:(int)tag withTitle:(NSString *)str withCheckout:(NSInteger)index withData:(RMTConfigComponent *)model
 {
     if (self = [super init]) {
         self.tag = tag;
         self.title = str;
         _stateIndex = index;
+        _currentModel = model;
     }
     return self;
 }
@@ -47,6 +48,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
       [_checkoutShow setState:_stateIndex];
+    if (_tag == 11 || _tag == 12) {
+        float x = (_currentModel.centerX * 1102);
+        float y = (_currentModel.centerY * 621);
+        _centerX.stringValue = [NSString stringWithFormat:@"%.1f",x];
+        _centerY.stringValue = [NSString stringWithFormat:@"%.1f",y];
+    } else{
+        _centerX.stringValue = [NSString stringWithFormat:@"%.1f",_currentModel.centerX ];
+        _centerY.stringValue = [NSString stringWithFormat:@"%.1f",_currentModel.centerY ];
+    }
+   
+    _sizeW.stringValue =  [NSString stringWithFormat:@"%.1f",_currentModel.sizeW];
+    if (_currentModel.sizeH > 0) {
+             _sizeY.stringValue =  [NSString stringWithFormat:@"%.1f",_currentModel.sizeW/_currentModel.sizeH];
+    } else {
+        _sizeY.stringValue = @"0";
+    }
+
+    _heightTextField.stringValue = [NSString stringWithFormat:@"%@",_currentModel.HeightStr];
+    _normolTextField.stringValue = [NSString stringWithFormat:@"%@",_currentModel.normollStr];
     // Do view setup here.
 }
 

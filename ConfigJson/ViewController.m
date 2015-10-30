@@ -114,83 +114,124 @@
         switch ([number intValue]) {
             case RMTRockA:
                 info.infoConfig.padControll = datas;
-                [dicton setObject:[datas toDictionary] forKey:@"padControll"];
+                if (_rockA.state == 1) {
+                      [dicton setObject:[datas toDictionary] forKey:@"padControll"];
+                }
+              
 
                 break;
             case RMTRockB:
                 info.infoConfig.controlDirectionImage = datas;
-                  [dicton setObject:[datas toDictionary] forKey:@"controlDirectionImage"];
+                   if (_rockB.state == 1) {
+                       [dicton setObject:[datas toDictionary] forKey:@"controlDirectionImage"];
+                   }
                 break;
             case RMTBtnA:
                 info.infoConfig.aBt = datas;
-                  [dicton setObject:[datas toDictionary] forKey:@"aBt"];
+                   if (_btnA.state == 1) {
+                      [dicton setObject:[datas toDictionary] forKey:@"aBt"];
+                   }
                 break;
             case RMTBtnB:
                 info.infoConfig.bBt = datas;
-                  [dicton setObject:[datas toDictionary] forKey:@"bBt"];
+                 if (_btnB.state == 1) {
+                      [dicton setObject:[datas toDictionary] forKey:@"bBt"];
+                 }
                 break;
             case RMTBtnC:
                 info.infoConfig.cBt = datas;
-                  [dicton setObject:[datas toDictionary] forKey:@"cBt"];
+                 if (_btnC.state == 1) {
+                      [dicton setObject:[datas toDictionary] forKey:@"cBt"];
+                 }
                 break;
             case RMTBtnD:
                 info.infoConfig.dBt = datas;
-                  [dicton setObject:[datas toDictionary] forKey:@"dBt"];
+                 if (_btnD.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"dBt"];
+                 }
                 break;
             case RMTBtnE:
                 info.infoConfig.eBt = datas;
-                  [dicton setObject:[datas toDictionary] forKey:@"eBt"];
+                 if (_btnE.state == 1) {
+                      [dicton setObject:[datas toDictionary] forKey:@"eBt"];
+                 }
                 break;
             case RMTBtnF:
                 info.infoConfig.fBt = datas;
-                  [dicton setObject:[datas toDictionary] forKey:@"fBt"];
+                 if (_btnF.state == 1) {
+                      [dicton setObject:[datas toDictionary] forKey:@"fBt"];
+                 }
                 break;
             case RMTBtnG:
                 info.infoConfig.gBt = datas;
-                  [dicton setObject:[datas toDictionary] forKey:@"gBt"];
+                 if (_btnG.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"gBt"];
+                 }
                 break;
             case RMTBtnH:
-                  [dicton setObject:[datas toDictionary] forKey:@"hBt"];
+                 if (_btnH.state == 1) {
+                      [dicton setObject:[datas toDictionary] forKey:@"hBt"];
+                 }
                 info.infoConfig.hBt = datas;
                 break;
             case RMTBtnI:
-                  [dicton setObject:[datas toDictionary] forKey:@"iBt"];
+                 if (_btni.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"iBt"];
+                 }
                 info.infoConfig.iBt = datas;
                 break;
             case RMTBtnJ:
-                  [dicton setObject:[datas toDictionary] forKey:@"jBt"];
+                 if (_btnj.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"jBt"];
+                 }
                 info.infoConfig.jBt = datas;
                 break;
             case RMTBtnK:
-                  [dicton setObject:[datas toDictionary] forKey:@"kBt"];
+                 if (_btnk.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"kBt"];
+                 }
                 info.infoConfig.kBt = datas;
                 break;
             case RMTBtnL:
-                  [dicton setObject:[datas toDictionary] forKey:@"lBt"];
+                 if (_btnl.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"lBt"];
+                 }
                 info.infoConfig.lBt = datas;
                 break;
             case RMTBtnM:
-                  [dicton setObject:[datas toDictionary] forKey:@"mBt"];
+                 if (_btnm.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"mBt"];
+                 }
                 info.infoConfig.mBt = datas;
                 break;
             case RMTBtnN:
-                  [dicton setObject:[datas toDictionary] forKey:@"nBt"];
+                 if (_btnn.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"nBt"];
+                 }
                 info.infoConfig.nBt = datas;
                 break;
             case RMTBtnO:
-                  [dicton setObject:[datas toDictionary] forKey:@"oBt"];
+                 if (_btno.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"oBt"];
+                 }
                 info.infoConfig.oBt = datas;
                 break;
             case RMTBtnP:
-                  [dicton setObject:[datas toDictionary] forKey:@"pBt"];
+                 if (_btnp.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"pBt"];
+                 }
                 info.infoConfig.pBt = datas;
                 break;
             case RMTImageA:
-                  [dicton setObject:[datas toDictionary] forKey:@"angryBotsLeftView"];
+                 if (_imageA.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"angryBotsLeftView"];
+                 }
                 info.infoConfig.angryBotsLeftView = datas;
                 break;
             case RMTImageB:
-                  [dicton setObject:[datas toDictionary] forKey:@"angryBotsRightView"];
+                 if (_imageB.state == 1) {
+                     [dicton setObject:[datas toDictionary] forKey:@"angryBotsRightView"];
+                 }
                 info.infoConfig.angryBotsRightView = datas;
                 break;
             default:
@@ -258,8 +299,11 @@
 
 - (IBAction)btnClick:(id)sender {
     NSButton *btn = (NSButton*)sender;
+
+    RMTConfigComponent *data =   [_data objectForKey:[NSNumber numberWithInt:(int)btn.tag]];
+    
 //    if (btn.state == 1) {
-        ConfigView *vc = [[ConfigView alloc] initWithTag:(int)btn.tag withTitle:[btn title] withCheckout:btn.state];
+        ConfigView *vc = [[ConfigView alloc] initWithTag:(int)btn.tag withTitle:[btn title] withCheckout:btn.state withData:data];
         vc.delegate = self;
         [self presentViewControllerAsModalWindow:vc];
 //    }

@@ -19,7 +19,8 @@
 
 @property (nonatomic, assign) id<RMTConfigDataDelegate>delegate;
 @property (nonatomic, assign) int tag;
+@property (nonatomic, strong) RMTConfigComponent *currentModel;
 
-- (instancetype)initWithTag:(int)tag withTitle:(NSString*)str withCheckout:(NSInteger)index;
+- (instancetype)initWithTag:(int)tag withTitle:(NSString*)str withCheckout:(NSInteger)index withData:(RMTConfigComponent*)model;
 
 @end
