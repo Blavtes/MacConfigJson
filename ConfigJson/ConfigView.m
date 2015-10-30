@@ -8,6 +8,7 @@
 
 #import "ConfigView.h"
 #import "ConfigModel.h"
+//#import "ViewController.h"
 
 @interface ConfigView () <NSOpenSavePanelDelegate>
 @property (weak) IBOutlet NSButton *checkoutModel;
@@ -27,22 +28,25 @@
 
 @property (weak) IBOutlet NSTextField *normolTextField;
 @property (weak) IBOutlet NSTextField *heightTextField;
-
+@property (nonatomic, assign) NSInteger stateIndex;
 
 @end
 
 @implementation ConfigView
 
-- (instancetype)initWithTag:(int)tag
+- (instancetype)initWithTag:(int)tag withTitle:(NSString *)str withCheckout:(NSInteger)index
 {
     if (self = [super init]) {
         self.tag = tag;
+        self.title = str;
+        _stateIndex = index;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+      [_checkoutShow setState:_stateIndex];
     // Do view setup here.
 }
 
@@ -53,16 +57,30 @@
 }
 
 - (IBAction)saveClick:(id)sender {
-   
+    if (_checkoutShow.integerValue != 1) {
+        if ([_delegate respondsToSelector:@selector(postConfigData:withTag:)]) {
+            [_delegate postConfigData:[[RMTConfigComponent alloc] init] withTag:_tag];
+            return;
+        }
+    }
     RMTConfigComponent *data = [[RMTConfigComponent alloc] init];
-
-    data.show     = _checkoutShow.isEnabled;
     data.centerX = [[_centerX stringValue] floatValue];
     data.centerY = [[_centerY stringValue] floatValue];
+    if (_tag == 11 || _tag == 12) {
+        data.centerX =  data.centerX / 2204.0f * 2;
+        data.centerY = data.centerY / 1242.0f * 2;
+    }
+    data.show     = _checkoutShow.state == 1;
+    
     data.alpha = [[_alpha stringValue] floatValue];
-    data.sound = [_soundCheck isEnabled];
+    data.sound = _soundCheck.state == 1;
     data.HeightStr = [_heightTextField stringValue];
     data.normollStr = [_normolTextField stringValue];
+    if ([[_sizeW stringValue] floatValue] > 0) {
+        data.sizeW = [[_sizeW stringValue] floatValue];
+        data.sizeH = [[_sizeY stringValue] floatValue] / data.sizeW ;
+    }
+
     NSLog(@"modle %@,",data);
     if ([_delegate respondsToSelector:@selector(postConfigData:withTag:)]) {
         [_delegate postConfigData:data withTag:_tag];

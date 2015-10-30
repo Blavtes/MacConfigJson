@@ -203,13 +203,13 @@
          [config setObject:dicton forKey:@"infoConfig"]; 
     }
   
-    if (_gyroscopeEnabled.isEnabled) {
+    if (_gyroscopeEnabled.state == 1) {
         [config setObject:@(true) forKey:@"gyroscopeEnabled"];
     }
-    if (_accelerometerEnabled.isEnabled) {
+    if (_accelerometerEnabled.state == 1) {
           [config setObject:@(true) forKey:@"accelerometerEnabled"];
     }
-    if (_accelerometerEnabled.isEnabled) {
+    if (_accelerometerEnabled.state == 1) {
          [config setObject:@(true) forKey:@"bluetoothEnabled"];
     }
     [config setObject:[_packageName stringValue] forKey:@"packageName"];
@@ -258,11 +258,11 @@
 
 - (IBAction)btnClick:(id)sender {
     NSButton *btn = (NSButton*)sender;
-    if (btn.state == 1) {
-        ConfigView *vc = [[ConfigView alloc] initWithTag:(int)btn.tag];
+//    if (btn.state == 1) {
+        ConfigView *vc = [[ConfigView alloc] initWithTag:(int)btn.tag withTitle:[btn title] withCheckout:btn.state];
         vc.delegate = self;
         [self presentViewControllerAsModalWindow:vc];
-    }
+//    }
 
 }
 @end

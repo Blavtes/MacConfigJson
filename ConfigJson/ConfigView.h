@@ -20,6 +20,6 @@
 @property (nonatomic, assign) id<RMTConfigDataDelegate>delegate;
 @property (nonatomic, assign) int tag;
 
-- (instancetype)initWithTag:(int)tag;
+- (instancetype)initWithTag:(int)tag withTitle:(NSString*)str withCheckout:(NSInteger)index;
 
 @end
