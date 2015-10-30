@@ -67,8 +67,8 @@
     data.centerX = [[_centerX stringValue] floatValue];
     data.centerY = [[_centerY stringValue] floatValue];
     if (_tag == 11 || _tag == 12) {
-        data.centerX =  data.centerX / 2204.0f / 2;
-        data.centerY = data.centerY / 1242.0f / 2;
+        data.centerX =  data.centerX / 2204.0f * 2;
+        data.centerY = data.centerY / 1242.0f *2;
     }
     data.show     = _checkoutShow.state == 1;
     
