@@ -209,7 +209,7 @@
     if (_accelerometerEnabled.state == 1) {
           [config setObject:@(true) forKey:@"accelerometerEnabled"];
     }
-    if (_accelerometerEnabled.state == 1) {
+    if (_bluetoothEnabled.state == 1) {
          [config setObject:@(true) forKey:@"bluetoothEnabled"];
     }
     [config setObject:[_packageName stringValue] forKey:@"packageName"];
