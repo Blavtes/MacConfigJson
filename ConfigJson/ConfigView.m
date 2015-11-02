@@ -29,6 +29,7 @@
 @property (weak) IBOutlet NSTextField *normolTextField;
 @property (weak) IBOutlet NSTextField *heightTextField;
 @property (nonatomic, assign) NSInteger stateIndex;
+@property (weak) IBOutlet NSView *MoreView;
 
 @end
 
@@ -45,6 +46,11 @@
     return self;
 }
 
+- (void)hideCommand
+{
+    _MoreView.hidden = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
       [_checkoutShow setState:_stateIndex];
@@ -53,6 +59,7 @@
         float y = (_currentModel.centerY * 621);
         _centerX.stringValue = [NSString stringWithFormat:@"%.1f",x];
         _centerY.stringValue = [NSString stringWithFormat:@"%.1f",y];
+        [self hideCommand];
     } else{
         _centerX.stringValue = [NSString stringWithFormat:@"%.1f",_currentModel.centerX ];
         _centerY.stringValue = [NSString stringWithFormat:@"%.1f",_currentModel.centerY ];
