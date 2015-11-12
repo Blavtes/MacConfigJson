@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -680,7 +680,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="sJd-bA-aYs">
+                            <button hidden="YES" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="sJd-bA-aYs">
                                 <rect key="frame" x="299" y="463" width="62" height="27"/>
                                 <buttonCell key="cell" type="check" title="加速计" bezelStyle="regularSquare" imagePosition="left" inset="2" id="82V-5k-u20">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -705,7 +705,7 @@
                                     <action selector="saveClick:" target="XfG-lQ-9wD" id="2VW-Jc-74Z"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ts3-db-enl">
+                            <button hidden="YES" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ts3-db-enl">
                                 <rect key="frame" x="376" y="463" width="62" height="27"/>
                                 <buttonCell key="cell" type="check" title="陀螺仪" bezelStyle="regularSquare" imagePosition="left" inset="2" id="6BV-aX-eP4">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -964,7 +964,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="107" y="465.5"/>
+            <point key="canvasLocation" x="259" y="427.5"/>
         </scene>
     </scenes>
 </document>
