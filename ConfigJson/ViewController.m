@@ -19,6 +19,7 @@
 @property (weak) IBOutlet NSButton *bluetoothEnabled;
 
 @property (weak) IBOutlet NSTextField *version;
+@property (weak) IBOutlet NSTextField *actionArgs;
 
 @property (weak) IBOutlet NSButton *rockA;
 @property (weak) IBOutlet NSButton *rockB;
@@ -252,6 +253,10 @@
     }
     if (_bluetoothEnabled.state == 1) {
          [config setObject:@(true) forKey:@"bluetoothEnabled"];
+    }
+    NSString *actionargs = _actionArgs.stringValue;
+    if ([actionargs intValue] > 0) {
+        [config setObject:@([actionargs intValue] ) forKey:@"actionArgs"];
     }
     [config setObject:[_packageName stringValue] forKey:@"packageName"];
     NSLog(@"map %@",_data);
