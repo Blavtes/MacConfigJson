@@ -680,7 +680,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button hidden="YES" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="sJd-bA-aYs">
+                            <button fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="sJd-bA-aYs">
                                 <rect key="frame" x="299" y="463" width="62" height="27"/>
                                 <buttonCell key="cell" type="check" title="加速计" bezelStyle="regularSquare" imagePosition="left" inset="2" id="82V-5k-u20">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -705,7 +705,7 @@
                                     <action selector="saveClick:" target="XfG-lQ-9wD" id="2VW-Jc-74Z"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ts3-db-enl">
+                            <button fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ts3-db-enl">
                                 <rect key="frame" x="376" y="463" width="62" height="27"/>
                                 <buttonCell key="cell" type="check" title="陀螺仪" bezelStyle="regularSquare" imagePosition="left" inset="2" id="6BV-aX-eP4">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>

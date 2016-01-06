@@ -10,7 +10,7 @@
 #import "ConfigModel.h"
 //#import "ViewController.h"
 
-@interface ConfigView () <NSOpenSavePanelDelegate>
+@interface ConfigView () <NSOpenSavePanelDelegate,NSTextFieldDelegate>
 @property (weak) IBOutlet NSButton *checkoutModel;
 @property (weak) IBOutlet NSButton *checkoutShow;
 
@@ -30,6 +30,7 @@
 @property (weak) IBOutlet NSTextField *heightTextField;
 @property (nonatomic, assign) NSInteger stateIndex;
 @property (weak) IBOutlet NSView *MoreView;
+@property (weak) IBOutlet NSTextField *tips;
 
 @end
 
@@ -54,6 +55,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
       [_checkoutShow setState:_stateIndex];
+    NSLog(@"log");
+    
+    _heightTextField.delegate = self;
+  
+    _normolTextField.delegate = self;
     if (_tag == 11 || _tag == 12) {
         float x = (_currentModel.centerX * 1102);
         float y = (_currentModel.centerY * 621);
@@ -74,6 +80,13 @@
 
     _heightTextField.stringValue = [NSString stringWithFormat:@"%@",_currentModel.HeightStr];
     _normolTextField.stringValue = [NSString stringWithFormat:@"%@",_currentModel.normollStr];
+    
+    if (_currentModel == nil) {
+        _heightTextField.stringValue = @"b_160_n.png";
+        _normolTextField.stringValue = @"b_160_h.png";
+        _sizeW.stringValue =  @"140";
+        _sizeY.stringValue = @"140";
+    }
     // Do view setup here.
 }
 
@@ -81,6 +94,18 @@
         NSLog(@"doubleClick");
     
 
+}
+
+- (BOOL)textShouldEndEditing:(NSText *)textObject;
+{
+    NSLog(@"nslog %@",textObject);
+    return true;
+}
+
+- (void)textDidEndEditing:(NSNotification *)notification
+{
+    NSLog(@"textDidEndEditing %@",notification.object);
+    
 }
 
 - (IBAction)saveClick:(id)sender {
@@ -93,6 +118,18 @@
     RMTConfigComponent *data = [[RMTConfigComponent alloc] init];
     data.centerX = [[_centerX stringValue] floatValue];
     data.centerY = [[_centerY stringValue] floatValue];
+    if (data.centerX <= 0 || data.centerX >= 2208) {
+        _tips.stringValue = @"x 有误";
+        return;
+    }
+    
+    if (data.centerX <= 0 || data.centerX >= 2208) {
+        _tips.stringValue = @"y 有误";
+         return;
+    }
+    
+   
+    
     if (_tag == 11 || _tag == 12) {
         data.centerX =  data.centerX / 2204.0f * 2;
         data.centerY = data.centerY / 1242.0f *2;
@@ -107,20 +144,71 @@
         data.sizeW = [[_sizeY stringValue] floatValue];
         data.sizeH =  [[_sizeW stringValue] floatValue]  / [[_sizeY stringValue] floatValue] ;
     }
-
+    
+    if (data.sizeW != data.sizeH) {
+        _tips.stringValue = @"宽高不等";
+    }
     NSLog(@"modle %@,",data);
     if ([_delegate respondsToSelector:@selector(postConfigData:withTag:)]) {
         [_delegate postConfigData:data withTag:_tag];
+        [self dismissController:self];
+    }
+}
+
+- (IBAction)rectChekcout:(id)sender {
+    _heightTextField.stringValue = @"rect.png";
+    [_normolTextField setStringValue:@"rect_down.png"];
+}
+
+
+- (IBAction)checkout:(id)sender {
+    _sizeY.stringValue = _sizeW.stringValue;
+    
+    if ([_sizeW.stringValue isEqualToString:_sizeY.stringValue]) {
+        if ([_sizeW.stringValue floatValue] > 260) {
+            _heightTextField.stringValue = @"b_260_n.png";
+            [_normolTextField setStringValue:@"b_260_h.png"];
+        } else if ( [_sizeW.stringValue floatValue] > 200 && [_sizeW.stringValue floatValue] < 260){
+            _heightTextField.stringValue = @"b_244_n.png";
+            [_normolTextField setStringValue:@"b_244_h.png"];
+        } else {
+            _heightTextField.stringValue = @"b_160_n.png";
+            [_normolTextField setStringValue:@"b_160_h.png"];
+        }
+    } else {
+         _heightTextField.stringValue = @"rect.png";
+         [_normolTextField setStringValue:@"rect_down.png"];
     }
 }
 
 - (IBAction)backClick:(id)sender {
     [self dismissController:self];
 }
+
+
 - (IBAction)heightClick:(id)sender {
   [self handleSelect:^(NSURL *url) {
       [self.heightPath setURL:url];
       [_heightTextField setStringValue:[url lastPathComponent]];
+      if ([[_heightTextField stringValue] isEqualToString:@"b_160_n.png"]) {
+          [_normolTextField setStringValue:@"b_160_h.png"];
+      }
+      
+      if ([[_heightTextField stringValue] isEqualToString:@"b_244_n.png"]) {
+          [_normolTextField setStringValue:@"b_244_h.png"];
+      }
+      
+      if ([[_heightTextField stringValue] isEqualToString:@"b_260_n.png"]) {
+          [_normolTextField setStringValue:@"b_260_h.png"];
+      }
+      
+      if ([[_heightTextField stringValue] isEqualToString:@"rect.png"]) {
+          [_normolTextField setStringValue:@"rect_down.png"];
+      }
+      
+      if (![_sizeW.stringValue isEqualToString:_sizeY.stringValue]) {
+          _tips.stringValue = @"宽高不等";
+      }
   }];
 }
 
@@ -142,6 +230,8 @@
     [self handleSelect:^(NSURL *url) {
         [self.normollPath setURL:url];
         [_normolTextField setStringValue:[url lastPathComponent]];
+      
+        
     }];
 }
 - (void)setDraggingSourceOperationMask:(NSDragOperation)mask
