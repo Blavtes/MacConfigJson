@@ -65,6 +65,7 @@
 @property (nonatomic, assign) BOOL accelerometerEnabled;
 @property (nonatomic, assign) BOOL bluetoothEnabled;
 @property (nonatomic, strong) RMTGameDesConfig *infoConfig;
+@property (nonatomic, assign) int actionArgs;
 @end
 
 @protocol RMTGameInfoConfig <NSObject>
